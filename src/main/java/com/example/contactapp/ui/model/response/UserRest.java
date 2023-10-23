@@ -1,7 +1,7 @@
 package com.example.contactapp.ui.model.response;
 
 
-public class UserRest {
+public class UserRest { //returning the user related data as response to the client request.
     private String userId;
     private String firstName;
     private String lastName;
@@ -38,5 +38,4 @@ public class UserRest {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }

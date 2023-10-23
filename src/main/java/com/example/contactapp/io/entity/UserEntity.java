@@ -4,39 +4,38 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 
-@Entity(name = "users")
-public class UserEntity implements Serializable {
-    private static final long serialVersionUID =1L;
+//Entity deals with our database. it tells all about the enteries, coloumns etc of our data.
+// it further assists in the CRUD request.
 
-    @Id
+@Entity(name="users") // data base name is "users"
+public class UserEntity implements Serializable {
+    private static final long serialVersionUID = 3114901492903644372L;
+    @Id  //Primary key of our database
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long Id;
-    @Column(nullable = false)
+    private Long id;
+
+    // here starts the enteries of our data base
+    @Column(nullable=false)
     private String userId;
-    @Column(nullable = false,length = 50)
+    @Column(nullable = false, length = 50)
     private String firstName;
-    @Column(nullable = false,length = 50)
+    @Column(nullable = false, length = 50)
     private String lastName;
-    @Column(nullable = false,length = 120)
+    @Column(nullable = false, length = 120)
     private String email;
     @Column(nullable = false)
-
-    private String password;
-    @Column(nullable = false)
-
     private String encryptedPassword;
     private String emailVerificationToken;
-    @Column(nullable = false)
-
+    @Column(nullable = false, columnDefinition = "boolean default false")
     private Boolean emailVerificationStatus = false;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getUserId() {
@@ -71,14 +70,6 @@ public class UserEntity implements Serializable {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getEncryptedPassword() {
         return encryptedPassword;
     }
@@ -103,8 +94,17 @@ public class UserEntity implements Serializable {
         this.emailVerificationStatus = emailVerificationStatus;
     }
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", encryptedPassword='" + encryptedPassword + '\'' +
+                ", emailVerificationToken='" + emailVerificationToken + '\'' +
+                ", emailVerificationStatus=" + emailVerificationStatus +
+                '}';
+    }
 }

@@ -2,10 +2,8 @@ package com.example.contactapp.shared.dto;
 
 import java.io.Serializable;
 
-public class UserDto implements Serializable {
-    private static final long serialVersionUID = 1731409355653688692L;
-
-
+public class UserDto implements Serializable { //transfer of user data between service layer and controller
+    private static final long serialVersionUID = -6184392474320290908L; // serializable:  objects of this class can be converted to a byte stream and reconstructed back into objects
     private long id;
     private String userId;
     private String firstName;
@@ -15,7 +13,6 @@ public class UserDto implements Serializable {
     private String encryptedPassword;
     private String emailVerificationToken;
     private Boolean emailVerificationStatus = false;
-
 
     public long getId() {
         return id;
@@ -89,5 +86,18 @@ public class UserDto implements Serializable {
         this.emailVerificationStatus = emailVerificationStatus;
     }
 
-
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", encryptedPassword='" + encryptedPassword + '\'' +
+                ", emailVerificationToken='" + emailVerificationToken + '\'' +
+                ", emailVerificationStatus=" + emailVerificationStatus +
+                '}';
+    }
 }

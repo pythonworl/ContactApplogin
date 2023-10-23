@@ -1,6 +1,6 @@
 package com.example.contactapp.ui.model.request;
 
-public class UserDetailsRequestModel {
+public class UserDetailsRequestModel {  //details needed from the user for sign up. communication with server
     private String firstName;
     private String lastName;
     private String email;
@@ -38,4 +38,13 @@ public class UserDetailsRequestModel {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "UserDetailsRequestModel{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
